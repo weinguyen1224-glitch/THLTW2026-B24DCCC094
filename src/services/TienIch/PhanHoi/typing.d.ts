@@ -1,21 +1,11 @@
+import SanPham from '@/pages/SanPham';
 import type { ELoaiPhanHoi } from './constant';
 
-declare module PhanHoi {
+declare module SanPham {
 	export interface IRecord {
-		_id: string;
-		createdAt?: string;
-		updatedAt?: string;
-		idDonDVMC?: string;
-		loaiPhanHoi: ELoaiPhanHoi;
-		noiDungPhanHoi: string;
-		urlPhanAnh?: string | null;
-
-		maDonVi?: string;
-		donVi?: ToChucNhanSu.IDonVi;
-		noiDungTraLoiPhanHoi: string;
-		daTraLoiPhanHoi: boolean;
-		maChuyenVien: string;
-		tenDonVi: string;
-		thoiGianTraLoi: string;
+		id: number;
+		name: string;
+		price: number;
+		quantity: number;
 	}
 }

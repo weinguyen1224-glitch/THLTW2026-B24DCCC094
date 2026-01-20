@@ -1,13 +1,9 @@
+import { SanPham } from '@/services/TienIch/PhanHoi/typing';
 import { useState, useCallback } from 'react';
 
-export interface SanPham {
-    id: number;
-    name: string;
-    price: number;
-    quantity: number;
-}
 
-const initialData: SanPham[] = [
+
+const initialData: SanPham.IRecord[] = [
     { id: 1, name: 'Laptop Dell XPS 13', price: 25000000, quantity: 10 },
     { id: 2, name: 'iPhone 15 Pro Max', price: 30000000, quantity: 15 },
     { id: 3, name: 'Samsung Galaxy S24', price: 22000000, quantity: 20 },
@@ -16,10 +12,10 @@ const initialData: SanPham[] = [
 ];
 
 export default function useSanPhamModel() {
-    const [products, setProducts] = useState<SanPham[]>(initialData);
+    const [products, setProducts] = useState<SanPham.IRecord[]>(initialData);
     const [searchText, setSearchText] = useState('');
 
-    const addProduct = useCallback((values: Omit<SanPham, 'id'>) => {
+    const addProduct = useCallback((values: Omit<SanPham.IRecord, 'id'>) => {
         setProducts((prev) => {
             const newId = prev.length > 0 ? Math.max(...prev.map((p) => p.id)) + 1 : 1;
             return [...prev, { ...values, id: newId }];
