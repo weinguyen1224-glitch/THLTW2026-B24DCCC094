@@ -12,10 +12,6 @@ const DoanSo: React.FC = () => {
 	const [gameOver, setGameOver] = useState<boolean>(false);
 	const [won, setWon] = useState<boolean>(false);
 
-	useEffect(() => {
-		startNewGame();
-	}, []);
-
 	const startNewGame = () => {
 		const newNumber = Math.floor(Math.random() * 100) + 1;
 		setRandomNumber(newNumber);
@@ -25,6 +21,9 @@ const DoanSo: React.FC = () => {
 		setGameOver(false);
 		setWon(false);
 	};
+	useEffect(() => {
+		startNewGame();
+	}, []);
 
 	const handleGuess = () => {
 		const num = parseInt(guess);

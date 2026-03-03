@@ -48,6 +48,12 @@ export default [
 		icon: 'ThunderboltOutlined',
 		component: './DoanSo',
 	},
+	{
+		path: '/hoc-tap',
+		name: 'Học Tập',
+		icon: 'BookOutlined',
+		component: './HocTap',
+	},
 
 	// DANH MUC HE THONG
 	// {
