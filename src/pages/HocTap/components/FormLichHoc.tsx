@@ -1,19 +1,5 @@
 import { Form, Input, InputNumber, Select, Button } from 'antd';
 
-interface MonHoc {
-	id: string;
-	ten: string;
-}
-
-interface LichHoc {
-	id: string;
-	monHocId: string;
-	ngay: string;
-	khoangThoiGian: number;
-	noiDung: string;
-	ghiChu: string;
-}
-
 interface Props {
 	onSubmit: (values: Partial<LichHoc>) => void;
 	initialValues?: Partial<LichHoc>;
