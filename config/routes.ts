@@ -54,7 +54,18 @@ export default [
 		icon: 'BookOutlined',
 		component: './HocTap',
 	},
-
+	{
+		path: '/oan-tu-ti',
+		name: 'Kéo búa bao',
+		icon: 'BookOutlined',
+		component: './OanTuTi',
+	},
+	{
+		path: '/quan-ly-cau-hoi',
+		name: 'Quản lý câu hỏi',
+		icon: 'BookOutlined',
+		component: './QuanLyCauHoi',
+	},
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
