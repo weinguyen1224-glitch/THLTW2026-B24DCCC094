@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Booking Manager - Quản Lý Đặt Lịch</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="app-container">
+			<aside class="sidebar" id="sidebar">
+				<div class="sidebar-header">
+					<div class="logo">
+						<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+							<rect width="32" height="32" rx="8" fill="#2563eb" />
+							<path d="M8 12h16M8 16h12M8 20h8" stroke="white" stroke-width="2" stroke-linecap="round" />
+						</svg>
+						<span>Booking</span>
+					</div>
+					<button class="sidebar-toggle" id="sidebarToggle">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M3 12h18M3 6h18M3 18h18" />
+						</svg>
+					</button>
+				</div>
+				<nav class="sidebar-nav">
+					<div class="nav-section">
+						<div class="nav-section-title">Tổng Quan</div>
+						<a href="#" class="nav-item active" data-page="dashboard">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<rect x="3" y="3" width="7" height="9" rx="1" />
+								<rect x="14" y="3" width="7" height="5" rx="1" />
+								<rect x="14" y="12" width="7" height="9" rx="1" />
+								<rect x="3" y="16" width="7" height="5" rx="1" />
+							</svg>
+							<span>Dashboard</span>
+						</a>
+					</div>
+					<div class="nav-section">
+						<div class="nav-section-title">Quản Lý</div>
+						<a href="#" class="nav-item" data-page="staff">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+								<circle cx="9" cy="7" r="4" />
+								<path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+							</svg>
+							<span>Nhân Viên</span>
+						</a>
+						<a href="#" class="nav-item" data-page="services">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path
+									d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+								/>
+							</svg>
+							<span>Dịch Vụ</span>
+						</a>
+						<a href="#" class="nav-item" data-page="bookings">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+								<line x1="16" y1="2" x2="16" y2="6" />
+								<line x1="8" y1="2" x2="8" y2="6" />
+								<line x1="3" y1="10" x2="21" y2="10" />
+							</svg>
+							<span>Lịch Hẹn</span>
+						</a>
+						<a href="#" class="nav-item" data-page="calendar">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+								<line x1="16" y1="2" x2="16" y2="6" />
+								<line x1="8" y1="2" x2="8" y2="6" />
+								<line x1="3" y1="10" x2="21" y2="10" />
+								<path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
+							</svg>
+							<span>Lịch Calendar</span>
+						</a>
+					</div>
+					<div class="nav-section">
+						<div class="nav-section-title">Đánh Giá</div>
+						<a href="#" class="nav-item" data-page="reviews">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<polygon
+									points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+								/>
+							</svg>
+							<span>Đánh Giá</span>
+						</a>
+					</div>
+					<div class="nav-section">
+						<div class="nav-section-title">Khách Hàng</div>
+						<a href="#" class="nav-item" data-page="customer-booking">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<circle cx="12" cy="12" r="10" />
+								<polyline points="12 6 12 12 16 14" />
+							</svg>
+							<span>Đặt Lịch</span>
+						</a>
+					</div>
+				</nav>
+			</aside>
+
+			<main class="main-content">
+				<header class="top-nav">
+					<button class="menu-toggle" id="menuToggle">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M3 12h18M3 6h18M3 18h18" />
+						</svg>
+					</button>
+					<div class="search-box">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<circle cx="11" cy="11" r="8" />
+							<path d="m21 21-4.35-4.35" />
+						</svg>
+						<input type="text" placeholder="Tìm kiếm..." id="globalSearch" />
+					</div>
+					<div class="top-nav-right">
+						<button class="notification-btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+								<path d="M13.73 21a2 2 0 0 1-3.46 0" />
+							</svg>
+							<span class="badge">3</span>
+						</button>
+						<div class="user-menu">
+							<div class="avatar">A</div>
+							<span>Admin</span>
+						</div>
+					</div>
+				</header>
+
+				<div class="content-area" id="contentArea">
+					<!-- Dashboard Page -->
+					<div class="page" id="page-dashboard">
+						<div class="page-header">
+							<h1>Tổng Quan Dashboard</h1>
+							<p>Thống kê và báo cáo hệ thống</p>
+						</div>
+						<div class="kpi-cards">
+							<div class="kpi-card">
+								<div class="kpi-icon blue">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+										<line x1="16" y1="2" x2="16" y2="6" />
+										<line x1="8" y1="2" x2="8" y2="6" />
+										<line x1="3" y1="10" x2="21" y2="10" />
+									</svg>
+								</div>
+								<div class="kpi-content">
+									<span class="kpi-label">Tổng Lịch Hẹn</span>
+									<span class="kpi-value" id="kpiTotalBookings">0</span>
+									<span class="kpi-change positive">+12% so với tuần trước</span>
+								</div>
+							</div>
+							<div class="kpi-card">
+								<div class="kpi-icon green">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<line x1="12" y1="1" x2="12" y2="23" />
+										<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+									</svg>
+								</div>
+								<div class="kpi-content">
+									<span class="kpi-label">Doanh Thu Tháng</span>
+									<span class="kpi-value" id="kpiRevenue">0 ₫</span>
+									<span class="kpi-change positive">+8% so với tháng trước</span>
+								</div>
+							</div>
+							<div class="kpi-card">
+								<div class="kpi-icon orange">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+										<circle cx="9" cy="7" r="4" />
+										<path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+									</svg>
+								</div>
+								<div class="kpi-content">
+									<span class="kpi-label">Nhân Viên</span>
+									<span class="kpi-value" id="kpiStaff">0</span>
+									<span class="kpi-change">Hoạt động</span>
+								</div>
+							</div>
+							<div class="kpi-card">
+								<div class="kpi-icon purple">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polygon
+											points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+										/>
+									</svg>
+								</div>
+								<div class="kpi-content">
+									<span class="kpi-label">Đánh Giá Trung Bình</span>
+									<span class="kpi-value" id="kpiRating">0.0</span>
+									<span class="kpi-change positive">Xuất sắc</span>
+								</div>
+							</div>
+						</div>
+						<div class="dashboard-grid">
+							<div class="card chart-card">
+								<div class="card-header">
+									<h3>Lịch Hẹn Theo Ngày</h3>
+									<select id="chartPeriod" class="select-sm">
+										<option value="7">7 ngày qua</option>
+										<option value="30">30 ngày qua</option>
+										<option value="90">90 ngày qua</option>
+									</select>
+								</div>
+								<div class="chart-container">
+									<canvas id="appointmentsChart"></canvas>
+								</div>
+							</div>
+							<div class="card chart-card">
+								<div class="card-header">
+									<h3>Doanh Thu Theo Dịch Vụ</h3>
+								</div>
+								<div class="chart-container">
+									<canvas id="revenueChart"></canvas>
+								</div>
+							</div>
+						</div>
+						<div class="dashboard-grid">
+							<div class="card">
+								<div class="card-header">
+									<h3>Nhân Viên Xuất Sắc</h3>
+								</div>
+								<div class="staff-ranking" id="staffRanking">
+									<div class="empty-state">
+										<p>Chưa có dữ liệu</p>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<h3>Dịch Vụ Phổ Biến</h3>
+								</div>
+								<div class="service-ranking" id="serviceRanking">
+									<div class="empty-state">
+										<p>Chưa có dữ liệu</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Lịch Hẹn Gần Đây</h3>
+								<button class="btn btn-sm btn-outline" data-page="bookings">Xem tất cả</button>
+							</div>
+							<div class="table-container">
+								<table class="data-table">
+									<thead>
+										<tr>
+											<th>Khách hàng</th>
+											<th>Dịch vụ</th>
+											<th>Nhân viên</th>
+											<th>Ngày</th>
+											<th>Giờ</th>
+											<th>Trạng thái</th>
+										</tr>
+									</thead>
+									<tbody id="recentBookingsTable"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<!-- Staff Management Page -->
+					<div class="page hidden" id="page-staff">
+						<div class="page-header">
+							<div>
+								<h1>Quản Lý Nhân Viên</h1>
+								<p>Thêm, sửa, xóa thông tin nhân viên và lịch làm việc</p>
+							</div>
+							<button class="btn btn-primary" id="addStaffBtn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<line x1="12" y1="5" x2="12" y2="19" />
+									<line x1="5" y1="12" x2="19" y2="12" />
+								</svg>
+								Thêm Nhân Viên
+							</button>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<div class="search-filter">
+									<div class="search-input">
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<circle cx="11" cy="11" r="8" />
+											<path d="m21 21-4.35-4.35" />
+										</svg>
+										<input type="text" placeholder="Tìm nhân viên..." id="staffSearch" />
+									</div>
+								</div>
+							</div>
+							<div class="table-container">
+								<table class="data-table">
+									<thead>
+										<tr>
+											<th>STT</th>
+											<th>Nhân Viên</th>
+											<th>Email</th>
+											<th>Số điện thoại</th>
+											<th>Lịch làm việc</th>
+											<th>Max khách/ngày</th>
+											<th>Đánh giá</th>
+											<th>Thao tác</th>
+										</tr>
+									</thead>
+									<tbody id="staffTableBody"></tbody>
+								</table>
+							</div>
+							<div class="empty-state" id="staffEmptyState">
+								<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+									<circle cx="9" cy="7" r="4" />
+									<path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+								</svg>
+								<p>Chưa có nhân viên nào</p>
+								<button class="btn btn-primary btn-sm" id="addFirstStaff">Thêm nhân viên đầu tiên</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Services Page -->
+					<div class="page hidden" id="page-services">
+						<div class="page-header">
+							<div>
+								<h1>Quản Lý Dịch Vụ</h1>
+								<p>Quản lý danh sách dịch vụ và giá cả</p>
+							</div>
+							<button class="btn btn-primary" id="addServiceBtn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<line x1="12" y1="5" x2="12" y2="19" />
+									<line x1="5" y1="12" x2="19" y2="12" />
+								</svg>
+								Thêm Dịch Vụ
+							</button>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<div class="search-filter">
+									<div class="search-input">
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<circle cx="11" cy="11" r="8" />
+											<path d="m21 21-4.35-4.35" />
+										</svg>
+										<input type="text" placeholder="Tìm dịch vụ..." id="serviceSearch" />
+									</div>
+									<select id="serviceCategoryFilter" class="select-input">
+										<option value="">Tất cả danh mục</option>
+										<option value="spa">Spa & Massage</option>
+										<option value="beauty">Làm đẹp</option>
+										<option value="hair">Chăm sóc tóc</option>
+										<option value="nail">Nail</option>
+									</select>
+								</div>
+							</div>
+							<div class="table-container">
+								<table class="data-table">
+									<thead>
+										<tr>
+											<th>STT</th>
+											<th>Tên Dịch Vụ</th>
+											<th>Danh mục</th>
+											<th>Giá</th>
+											<th>Thời gian</th>
+											<th>Mô tả</th>
+											<th>Thao tác</th>
+										</tr>
+									</thead>
+									<tbody id="servicesTableBody"></tbody>
+								</table>
+							</div>
+							<div class="empty-state" id="servicesEmptyState">
+								<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+									<path
+										d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+									/>
+								</svg>
+								<p>Chưa có dịch vụ nào</p>
+								<button class="btn btn-primary btn-sm" id="addFirstService">Thêm dịch vụ đầu tiên</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Bookings Page -->
+					<div class="page hidden" id="page-bookings">
+						<div class="page-header">
+							<div>
+								<h1>Quản Lý Lịch Hẹn</h1>
+								<p>Theo dõi và quản lý tất cả lịch hẹn</p>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<div class="tabs">
+									<button class="tab active" data-tab="list">
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<line x1="8" y1="6" x2="21" y2="6" />
+											<line x1="8" y1="12" x2="21" y2="12" />
+											<line x1="8" y1="18" x2="21" y2="18" />
+											<line x1="3" y1="6" x2="3.01" y2="6" />
+											<line x1="3" y1="12" x2="3.01" y2="12" />
+											<line x1="3" y1="18" x2="3.01" y2="18" />
+										</svg>
+										Danh Sách
+									</button>
+									<button class="tab" data-tab="calendar">
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+											<line x1="16" y1="2" x2="16" y2="6" />
+											<line x1="8" y1="2" x2="8" y2="6" />
+											<line x1="3" y1="10" x2="21" y2="10" />
+										</svg>
+										Calendar
+									</button>
+								</div>
+								<div class="search-filter">
+									<div class="search-input">
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<circle cx="11" cy="11" r="8" />
+											<path d="m21 21-4.35-4.35" />
+										</svg>
+										<input type="text" placeholder="Tìm lịch hẹn..." id="bookingSearch" />
+									</div>
+									<select id="bookingStatusFilter" class="select-input">
+										<option value="">Tất cả trạng thái</option>
+										<option value="pending">Chờ duyệt</option>
+										<option value="confirmed">Xác nhận</option>
+										<option value="completed">Hoàn thành</option>
+										<option value="cancelled">Hủy</option>
+									</select>
+								</div>
+							</div>
+							<div class="tab-content">
+								<div class="tab-pane active" id="bookingListView">
+									<div class="table-container">
+										<table class="data-table">
+											<thead>
+												<tr>
+													<th>STT</th>
+													<th>Khách hàng</th>
+													<th>Dịch vụ</th>
+													<th>Nhân viên</th>
+													<th>Ngày</th>
+													<th>Giờ</th>
+													<th>Trạng thái</th>
+													<th>Thao tác</th>
+												</tr>
+											</thead>
+											<tbody id="bookingsTableBody"></tbody>
+										</table>
+									</div>
+									<div class="empty-state" id="bookingsEmptyState">
+										<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+											<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+											<line x1="16" y1="2" x2="16" y2="6" />
+											<line x1="8" y1="2" x2="8" y2="6" />
+											<line x1="3" y1="10" x2="21" y2="10" />
+										</svg>
+										<p>Chưa có lịch hẹn nào</p>
+									</div>
+								</div>
+								<div class="tab-pane" id="bookingCalendarView">
+									<div class="calendar-header">
+										<button class="btn btn-icon" id="prevMonth">
+											<svg
+												width="20"
+												height="20"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+											>
+												<polyline points="15 18 9 12 15 6" />
+											</svg>
+										</button>
+										<h3 id="calendarTitle">Tháng 3/2026</h3>
+										<button class="btn btn-icon" id="nextMonth">
+											<svg
+												width="20"
+												height="20"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+											>
+												<polyline points="9 18 15 12 9 6" />
+											</svg>
+										</button>
+									</div>
+									<div class="calendar-grid" id="calendarGrid"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Calendar View Page -->
+					<div class="page hidden" id="page-calendar">
+						<div class="page-header">
+							<div>
+								<h1>Lịch Calendar</h1>
+								<p>Xem lịch hẹn theo dạng calendar</p>
+							</div>
+						</div>
+						<div class="card calendar-full">
+							<div class="calendar-header">
+								<button class="btn btn-icon" id="fullPrevMonth">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="15 18 9 12 15 6" />
+									</svg>
+								</button>
+								<h3 id="fullCalendarTitle">Tháng 3/2026</h3>
+								<button class="btn btn-icon" id="fullNextMonth">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="9 18 15 12 9 6" />
+									</svg>
+								</button>
+							</div>
+							<div class="calendar-grid" id="fullCalendarGrid"></div>
+							<div class="calendar-legend">
+								<div class="legend-item"><span class="legend-dot pending"></span> Chờ duyệt</div>
+								<div class="legend-item"><span class="legend-dot confirmed"></span> Xác nhận</div>
+								<div class="legend-item"><span class="legend-dot completed"></span> Hoàn thành</div>
+								<div class="legend-item"><span class="legend-dot cancelled"></span> Hủy</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Reviews Page -->
+					<div class="page hidden" id="page-reviews">
+						<div class="page-header">
+							<div>
+								<h1>Quản Lý Đánh Giá</h1>
+								<p>Xem và phản hồi đánh giá từ khách hàng</p>
+							</div>
+						</div>
+						<div class="reviews-container" id="reviewsContainer">
+							<div class="empty-state" id="reviewsEmptyState">
+								<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+									/>
+								</svg>
+								<p>Chưa có đánh giá nào</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Customer Booking Page -->
+					<div class="page hidden" id="page-customer-booking">
+						<div class="booking-wizard">
+							<div class="wizard-header">
+								<h1>Đặt Lịch Hẹn</h1>
+								<p>Chọn dịch vụ và thời gian phù hợp với bạn</p>
+							</div>
+							<div class="wizard-steps">
+								<div class="wizard-step active" data-step="1">
+									<div class="step-number">1</div>
+									<div class="step-content">
+										<span class="step-title">Chọn Dịch Vụ</span>
+										<span class="step-desc">Lựa chọn dịch vụ mong muốn</span>
+									</div>
+								</div>
+								<div class="wizard-step" data-step="2">
+									<div class="step-number">2</div>
+									<div class="step-content">
+										<span class="step-title">Chọn Nhân Viên</span>
+										<span class="step-desc">Chọn người phục vụ</span>
+									</div>
+								</div>
+								<div class="wizard-step" data-step="3">
+									<div class="step-number">3</div>
+									<div class="step-content">
+										<span class="step-title">Chọn Ngày Giờ</span>
+										<span class="step-desc">Chọn thời gian phù hợp</span>
+									</div>
+								</div>
+								<div class="wizard-step" data-step="4">
+									<div class="step-number">4</div>
+									<div class="step-content">
+										<span class="step-title">Xác Nhận</span>
+										<span class="step-desc">Hoàn tất đặt lịch</span>
+									</div>
+								</div>
+							</div>
+							<div class="wizard-content">
+								<!-- Step 1: Select Service -->
+								<div class="wizard-panel active" data-panel="1">
+									<h3>Chọn Dịch Vụ</h3>
+									<div class="service-grid" id="customerServiceGrid"></div>
+								</div>
+								<!-- Step 2: Select Staff -->
+								<div class="wizard-panel" data-panel="2">
+									<h3>Chọn Nhân Viên</h3>
+									<div class="staff-grid" id="customerStaffGrid"></div>
+								</div>
+								<!-- Step 3: Select Date Time -->
+								<div class="wizard-panel" data-panel="3">
+									<h3>Chọn Ngày Giờ</h3>
+									<div class="datetime-picker">
+										<div class="date-selector">
+											<label>Chọn ngày</label>
+											<input type="date" id="bookingDate" class="date-input" />
+										</div>
+										<div class="time-slots">
+											<label>Chọn giờ</label>
+											<div class="slots-grid" id="timeSlotsGrid"></div>
+										</div>
+									</div>
+								</div>
+								<!-- Step 4: Confirm -->
+								<div class="wizard-panel" data-panel="4">
+									<h3>Xác Nhận Đặt Lịch</h3>
+									<div class="booking-summary" id="bookingSummary"></div>
+									<div class="customer-info-form">
+										<h4>Thông tin khách hàng</h4>
+										<div class="form-group">
+											<label>Họ tên *</label>
+											<input type="text" id="customerName" class="form-input" placeholder="Nhập họ tên" />
+										</div>
+										<div class="form-group">
+											<label>Số điện thoại *</label>
+											<input type="tel" id="customerPhone" class="form-input" placeholder="Nhập số điện thoại" />
+										</div>
+										<div class="form-group">
+											<label>Email</label>
+											<input
+												type="email"
+												id="customerEmail"
+												class="form-input"
+												placeholder="Nhập email (không bắt buộc)"
+											/>
+										</div>
+										<div class="form-group">
+											<label>Ghi chú</label>
+											<textarea
+												id="customerNote"
+												class="form-input"
+												rows="3"
+												placeholder="Ghi chú thêm (không bắt buộc)"
+											></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="wizard-actions">
+								<button class="btn btn-outline hidden" id="prevStep">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="15 18 9 12 15 6" />
+									</svg>
+									Quay Lại
+								</button>
+								<button class="btn btn-primary" id="nextStep">
+									Tiếp Theo
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<polyline points="9 18 15 12 9 6" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- Staff Modal -->
+		<div class="modal" id="staffModal">
+			<div class="modal-overlay"></div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 id="staffModalTitle">Thêm Nhân Viên</h3>
+					<button class="modal-close" data-close="staffModal">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<line x1="18" y1="6" x2="6" y2="18" />
+							<line x1="6" y1="6" x2="18" y2="18" />
+						</svg>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="staffForm">
+						<input type="hidden" id="staffId" />
+						<div class="form-group">
+							<label>Họ tên *</label>
+							<input type="text" id="staffName" class="form-input" required />
+						</div>
+						<div class="form-group">
+							<label>Email *</label>
+							<input type="email" id="staffEmail" class="form-input" required />
+						</div>
+						<div class="form-group">
+							<label>Số điện thoại *</label>
+							<input type="tel" id="staffPhone" class="form-input" required />
+						</div>
+						<div class="form-group">
+							<label>Ảnh đại diện</label>
+							<input type="text" id="staffAvatar" class="form-input" placeholder="URL ảnh đại diện" />
+						</div>
+						<div class="form-group">
+							<label>Số khách tối đa/ngày *</label>
+							<input type="number" id="staffMaxCustomers" class="form-input" min="1" max="50" value="10" required />
+						</div>
+						<div class="form-group">
+							<label>Lịch làm việc *</label>
+							<div class="schedule-grid">
+								<div class="schedule-day">
+									<input type="checkbox" id="mon" value="1" checked />
+									<label for="mon">T2</label>
+								</div>
+								<div class="schedule-day">
+									<input type="checkbox" id="tue" value="2" checked />
+									<label for="tue">T3</label>
+								</div>
+								<div class="schedule-day">
+									<input type="checkbox" id="wed" value="3" checked />
+									<label for="wed">T4</label>
+								</div>
+								<div class="schedule-day">
+									<input type="checkbox" id="thu" value="4" checked />
+									<label for="thu">T5</label>
+								</div>
+								<div class="schedule-day">
+									<input type="checkbox" id="fri" value="5" checked />
+									<label for="fri">T6</label>
+								</div>
+								<div class="schedule-day">
+									<input type="checkbox" id="sat" value="6" />
+									<label for="sat">T7</label>
+								</div>
+								<div class="schedule-day">
+									<input type="checkbox" id="sun" value="0" />
+									<label for="sun">CN</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group">
+								<label>Giờ bắt đầu *</label>
+								<input type="time" id="staffStartTime" class="form-input" value="09:00" required />
+							</div>
+							<div class="form-group">
+								<label>Giờ kết thúc *</label>
+								<input type="time" id="staffEndTime" class="form-input" value="17:00" required />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline" data-close="staffModal">Hủy</button>
+					<button class="btn btn-primary" id="saveStaffBtn">Lưu</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Service Modal -->
+		<div class="modal" id="serviceModal">
+			<div class="modal-overlay"></div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 id="serviceModalTitle">Thêm Dịch Vụ</h3>
+					<button class="modal-close" data-close="serviceModal">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<line x1="18" y1="6" x2="6" y2="18" />
+							<line x1="6" y1="6" x2="18" y2="18" />
+						</svg>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="serviceForm">
+						<input type="hidden" id="serviceId" />
+						<div class="form-group">
+							<label>Tên dịch vụ *</label>
+							<input type="text" id="serviceName" class="form-input" required />
+						</div>
+						<div class="form-group">
+							<label>Danh mục *</label>
+							<select id="serviceCategory" class="form-input" required>
+								<option value="">Chọn danh mục</option>
+								<option value="spa">Spa & Massage</option>
+								<option value="beauty">Làm đẹp</option>
+								<option value="hair">Chăm sóc tóc</option>
+								<option value="nail">Nail</option>
+							</select>
+						</div>
+						<div class="form-row">
+							<div class="form-group">
+								<label>Giá (VNĐ) *</label>
+								<input type="number" id="servicePrice" class="form-input" min="0" required />
+							</div>
+							<div class="form-group">
+								<label>Thời gian (phút) *</label>
+								<input type="number" id="serviceDuration" class="form-input" min="15" step="15" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Mô tả</label>
+							<textarea id="serviceDescription" class="form-input" rows="3"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline" data-close="serviceModal">Hủy</button>
+					<button class="btn btn-primary" id="saveServiceBtn">Lưu</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Booking Modal -->
+		<div class="modal" id="bookingModal">
+			<div class="modal-overlay"></div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Chi Tiết Lịch Hẹn</h3>
+					<button class="modal-close" data-close="bookingModal">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<line x1="18" y1="6" x2="6" y2="18" />
+							<line x1="6" y1="6" x2="18" y2="18" />
+						</svg>
+					</button>
+				</div>
+				<div class="modal-body" id="bookingDetailContent"></div>
+				<div class="modal-footer">
+					<button class="btn btn-outline" data-close="bookingModal">Đóng</button>
+					<div class="booking-actions" id="bookingActions"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Review Modal -->
+		<div class="modal" id="reviewModal">
+			<div class="modal-overlay"></div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Đánh Giá Dịch Vụ</h3>
+					<button class="modal-close" data-close="reviewModal">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<line x1="18" y1="6" x2="6" y2="18" />
+							<line x1="6" y1="6" x2="18" y2="18" />
+						</svg>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="review-form">
+						<div class="form-group">
+							<label>Chọn lịch hẹn đã hoàn thành</label>
+							<select id="reviewBooking" class="form-input"></select>
+						</div>
+						<div class="form-group">
+							<label>Đánh giá</label>
+							<div class="star-rating" id="starRating">
+								<span class="star" data-value="1">★</span>
+								<span class="star" data-value="2">★</span>
+								<span class="star" data-value="3">★</span>
+								<span class="star" data-value="4">★</span>
+								<span class="star" data-value="5">★</span>
+							</div>
+							<input type="hidden" id="reviewRating" value="0" />
+						</div>
+						<div class="form-group">
+							<label>Nhận xét</label>
+							<textarea
+								id="reviewComment"
+								class="form-input"
+								rows="4"
+								placeholder="Chia sẻ trải nghiệm của bạn..."
+							></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline" data-close="reviewModal">Hủy</button>
+					<button class="btn btn-primary" id="submitReviewBtn">Gửi Đánh Giá</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Toast Notification -->
+		<div class="toast-container" id="toastContainer"></div>
+
+		<script src="app.js"></script>
+	</body>
+</html>

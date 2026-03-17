@@ -66,6 +66,42 @@ export default [
 		icon: 'BookOutlined',
 		component: './QuanLyCauHoi',
 	},
+
+	///////////////////////////////////
+	// QUAN LY SALON
+	{
+		name: 'Quản lý Salon',
+		path: '/salon',
+		icon: 'ShopOutlined',
+		routes: [
+			{
+				name: 'Nhân viên',
+				path: 'nhan-vien',
+				component: './QuanLySalon/NhanVien',
+			},
+			{
+				name: 'Dịch vụ',
+				path: 'dich-vu',
+				component: './QuanLySalon/DichVu',
+			},
+			{
+				name: 'Lịch hẹn',
+				path: 'lich-hen',
+				component: './QuanLySalon/LichHen',
+			},
+			{
+				name: 'Đánh giá',
+				path: 'danh-gia',
+				component: './QuanLySalon/DanhGia',
+			},
+			{
+				name: 'Thống kê',
+				path: 'thong-ke',
+				component: './QuanLySalon/ThongKe',
+			},
+		],
+	},
+
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
