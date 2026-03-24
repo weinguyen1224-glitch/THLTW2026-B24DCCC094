@@ -43,19 +43,39 @@
 		component: './TodoList',
 	},
 
-	// DANH MUC HE THONG
-	// {
-	// 	name: 'DanhMuc',
-	// 	path: '/danh-muc',
-	// 	icon: 'copy',
-	// 	routes: [
-	// 		{
-	// 			name: 'ChucVu',
-	// 			path: 'chuc-vu',
-	// 			component: './DanhMuc/ChucVu',
-	// 		},
-	// 	],
-	// },
+	// QUAN LY VAN BANG TOT NGHIEP
+	{
+		name: 'TotNghiep',
+		path: '/tot-nghiep',
+		icon: 'FormOutlined',
+		routes: [
+			{
+				name: 'TotNghiep.DotTotNghiep',
+				path: 'dot-tot-nghiep',
+				component: './TotNghiep/DotTotNghiep',
+			},
+			{
+				name: 'TotNghiep.HoSoTotNghiep',
+				path: 'ho-so-tot-nghiep',
+				component: './TotNghiep/HoSoTotNghiep',
+			},
+			{
+				name: 'TotNghiep.VanBang',
+				path: 'van-bang',
+				component: './TotNghiep/VanBang',
+			},
+			{
+				name: 'TotNghiep.CauHinhBienMau',
+				path: 'cau-hinh-bien-mau',
+				component: './TotNghiep/CauHinhBienMau',
+			},
+			{
+				name: 'TotNghiep.ThongKe',
+				path: 'thong-ke',
+				component: './TotNghiep/ThongKe',
+			},
+		],
+	},
 
 	{
 		path: '/notification',

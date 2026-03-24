@@ -2,14 +2,14 @@ import { type TExportField, type TFilter, type TImportHeader, type TImportRespon
 import { chuanHoaObject } from '@/utils/utils';
 import { message } from 'antd';
 import { useState } from 'react';
-import useInitService from './useInitService';
+import useLocalStorageService from './useLocalStorageService';
 
 /**
  *
- * @param url path api
+ * @param url path api (used as localStorage collection key)
  * @param fieldNameCondtion condition | cond
  * @param initCondition initConditionValue
- * @param upService Ip của dịch vụ bên thứ 3
+ * @param ipService unused - kept for backward compatibility
  * @returns
  */
 const useInitModel = <T,>(
@@ -45,13 +45,14 @@ const useInitModel = <T,>(
 		deleteManyService,
 		getService,
 		getByIdService,
-		getImportHeaders,
-		getImportTemplate,
-		postExecuteImport,
-		postValidateImport,
-		getExportFields,
-		postExport,
-	} = useInitService(url, ipService);
+	} = useLocalStorageService(url);
+
+	const getImportHeaders = () => Promise.resolve({ data: { data: [] } });
+	const getImportTemplate = () => Promise.resolve({ data: null });
+	const postValidateImport = (payload: any) => Promise.resolve({ data: { data: [] } });
+	const postExecuteImport = (payload: any) => Promise.resolve({ data: { data: [] } });
+	const getExportFields = () => Promise.resolve({ data: { data: [] } });
+	const postExport = (payload: any, params?: any) => Promise.resolve({ data: null });
 
 	/**
 	 * Get Pageable Model
