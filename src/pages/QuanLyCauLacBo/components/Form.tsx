@@ -1,5 +1,6 @@
 import rules from '@/utils/rules';
 import { resetFieldsForm } from '@/utils/utils';
+import TinyEditor from '@/components/TinyEditor';
 import { Button, Card, DatePicker, Form, Input, Switch } from 'antd';
 import { useEffect } from 'react';
 import { useModel } from 'umi';
@@ -55,7 +56,7 @@ const FormCauLacBo = (props: any) => {
 				</Form.Item>
 
 				<Form.Item name='moTa' label='Mô tả'>
-					<Input.TextArea rows={4} placeholder='Nhập mô tả câu lạc bộ' />
+					<TinyEditor height={300} miniToolbar />
 				</Form.Item>
 
 				<Form.Item

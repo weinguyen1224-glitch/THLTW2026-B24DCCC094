@@ -104,7 +104,19 @@ const QuanLyCauLacBoPage = () => {
 			dataIndex: 'moTa',
 			width: 200,
 			ellipsis: true,
-			render: (text: string) => text || '-',
+			render: (text: string) => {
+				if (!text) return '-';
+				// Loại bỏ HTML tags để hiển thị text ngắn gọn trong table
+				const plainText = text.replace(/<[^>]*>/g, '').substring(0, 50);
+				return (
+					<Tooltip title={<div dangerouslySetInnerHTML={{ __html: text }} />}>
+						<span>
+							{plainText}
+							{text.length > 50 ? '...' : ''}
+						</span>
+					</Tooltip>
+				);
+			},
 		},
 		{
 			title: 'Chủ nhiệm CLB',
