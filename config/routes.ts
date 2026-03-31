@@ -43,6 +43,32 @@
 		component: './TodoList',
 	},
 
+	// QUAN LY CAU LAC BO
+	{
+		path: '/quan-ly-cau-lac-bo',
+		name: 'Quản lý câu lạc bộ',
+		icon: 'TeamOutlined',
+		component: './QuanLyCauLacBo',
+	},
+	{
+		path: '/quan-ly-don-dang-ky',
+		name: 'Quản lý đơn đăng ký',
+		icon: 'FileTextOutlined',
+		component: './QuanLyDonDangKy',
+	},
+	{
+		path: '/quan-ly-thanh-vien',
+		name: 'Quản lý thành viên',
+		icon: 'UserOutlined',
+		component: './QuanLyThanhVien',
+	},
+	{
+		path: '/bao-cao-thong-ke',
+		name: 'Báo cáo thống kê',
+		icon: 'BarChartOutlined',
+		component: './BaoCaoThongKe',
+	},
+
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
