@@ -1,0 +1,209 @@
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 24px;
+}
+
+.header {
+	margin-bottom: 32px;
+	text-align: center;
+
+	h1 {
+		margin-bottom: 8px;
+		color: #1890ff;
+		font-weight: 700;
+		font-size: 32px;
+	}
+
+	p {
+		color: #666;
+		font-size: 16px;
+	}
+}
+
+.filterSection {
+	margin-bottom: 32px;
+}
+
+.filterCard {
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sliderContainer {
+	padding: 8px 0;
+
+	span {
+		display: block;
+		margin-bottom: 8px;
+		color: #333;
+		font-weight: 500;
+	}
+}
+
+.results {
+	margin-top: 32px;
+}
+
+.resultsHeader {
+	margin-bottom: 24px;
+
+	h2 {
+		color: #333;
+		font-weight: 600;
+		font-size: 24px;
+	}
+}
+
+.card {
+	height: 100%;
+	overflow: hidden;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+
+	&:hover {
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+		transform: translateY(-4px);
+	}
+}
+
+.cardImage {
+	position: relative;
+	height: 200px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	&:hover img {
+		transform: scale(1.05);
+	}
+}
+
+.tag {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	padding: 4px 12px;
+	font-weight: 500;
+	border-radius: 4px;
+}
+
+.cardTitle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+
+	span {
+		color: #333;
+		font-weight: 600;
+		font-size: 16px;
+	}
+
+	.ant-rate {
+		font-size: 14px;
+	}
+}
+
+.cardDescription {
+	.location {
+		display: flex;
+		gap: 4px;
+		align-items: center;
+		margin-bottom: 8px;
+		color: #666;
+		font-size: 14px;
+	}
+
+	.price {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 8px;
+		font-size: 14px;
+
+		.priceLabel {
+			color: #666;
+		}
+
+		.priceValue {
+			color: #f5222d;
+			font-weight: 600;
+		}
+	}
+
+	.time {
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+
+		.timeLabel {
+			color: #666;
+		}
+
+		.timeValue {
+			color: #1890ff;
+			font-weight: 500;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 16px;
+	}
+
+	.header {
+		h1 {
+			font-size: 24px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+
+	.resultsHeader {
+		h2 {
+			font-size: 20px;
+		}
+	}
+
+	.cardImage {
+		height: 160px;
+	}
+
+	.cardTitle {
+		flex-direction: column;
+		gap: 8px;
+		align-items: flex-start;
+
+		span {
+			font-size: 14px;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.header {
+		h1 {
+			font-size: 20px;
+		}
+	}
+
+	.cardImage {
+		height: 140px;
+	}
+
+	.cardDescription {
+		.price,
+		.time {
+			flex-direction: column;
+			gap: 4px;
+		}
+	}
+}

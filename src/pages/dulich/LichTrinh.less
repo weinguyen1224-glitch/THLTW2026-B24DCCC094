@@ -1,0 +1,175 @@
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 24px;
+}
+
+.header {
+	margin-bottom: 32px;
+	text-align: center;
+
+	h1 {
+		margin-bottom: 8px;
+		color: #1890ff;
+		font-weight: 700;
+		font-size: 32px;
+	}
+
+	p {
+		color: #666;
+		font-size: 16px;
+	}
+}
+
+.formCard {
+	margin-bottom: 24px;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+	label {
+		display: block;
+		margin-bottom: 8px;
+		color: #333;
+		font-weight: 500;
+	}
+}
+
+.daysContainer {
+	margin: 32px 0;
+
+	h2 {
+		margin-bottom: 16px;
+		color: #333;
+		font-weight: 600;
+		font-size: 24px;
+	}
+}
+
+.dayCard {
+	height: 100%;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+	.ant-card-head {
+		color: white;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+		.ant-card-head-title {
+			color: white;
+		}
+	}
+}
+
+.dayTitle {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	color: white;
+	font-weight: 600;
+}
+
+.diemDenTitle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #333;
+	font-weight: 600;
+}
+
+.diemDenInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	color: #666;
+	font-size: 13px;
+
+	div {
+		display: flex;
+		gap: 4px;
+		align-items: center;
+	}
+}
+
+.summaryCard {
+	margin: 24px 0;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summaryItem {
+	padding: 16px;
+	text-align: center;
+
+	.summaryLabel {
+		margin-bottom: 8px;
+		color: #666;
+		font-size: 14px;
+	}
+
+	.summaryValue {
+		color: #333;
+		font-weight: 700;
+		font-size: 24px;
+
+		&.positive {
+			color: #52c41a;
+		}
+
+		&.negative {
+			color: #f5222d;
+		}
+	}
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+	margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 16px;
+	}
+
+	.header {
+		h1 {
+			font-size: 24px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+
+	.daysContainer {
+		h2 {
+			font-size: 20px;
+		}
+	}
+
+	.summaryItem {
+		.summaryValue {
+			font-size: 20px;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.header {
+		h1 {
+			font-size: 20px;
+		}
+	}
+
+	.summaryItem {
+		padding: 12px;
+
+		.summaryValue {
+			font-size: 18px;
+		}
+	}
+}
