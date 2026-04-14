@@ -120,7 +120,7 @@ const OIDCBounder_: FC = ({ children }) => {
 		ConfigProvider.config({ theme: { primaryColor } });
 	}, []);
 
-	return <>{(auth.isLoading || initialState?.permissionLoading) && !isUnauth ? <LoadingPage /> : children}</>;
+	return <>{children}</>;
 };
 
 export const OIDCBounder: FC & { getActions: () => typeof OIDCBounderHandlers } = (props) => {

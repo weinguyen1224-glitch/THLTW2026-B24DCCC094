@@ -42,6 +42,12 @@
 		icon: 'OrderedListOutlined',
 		component: './TodoList',
 	},
+	{
+		path: '/khoa-hoc',
+		name: 'Quản lý Khóa học',
+		icon: 'BookOutlined',
+		component: './KhoaHoc',
+	},
 
 	// DANH MUC HE THONG
 	// {
