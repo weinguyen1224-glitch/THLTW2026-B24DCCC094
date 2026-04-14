@@ -5,7 +5,10 @@
 # roadhog-api-doc ignore
 /src/utils/request-temp.js
 _roadhog-api-doc
-
+/.kilocode
+/.kilo
+/_bmad
+/bmad-output
 # production
 /dist
 /.vscode
@@ -27,7 +30,6 @@ package-lock.json
 *.log
 functions/*
 .temp/**
-
 # umi
 .umi
 .umi-production
