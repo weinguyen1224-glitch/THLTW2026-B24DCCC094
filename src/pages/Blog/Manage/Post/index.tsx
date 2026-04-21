@@ -1,4 +1,4 @@
-import { Table, Button, Input, Select, Tag, Space, Modal, Form, Popconfirm, message } from 'antd';
+import { Table, Button, Input, Select, Tag, Space, Modal, Form, Popconfirm, message, Avatar } from 'antd';
 import { PlusOutlined, EditOutlined, DeleteOutlined, SearchOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { useModel } from 'umi';
@@ -15,14 +15,6 @@ const ManagePosts: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [editingPost, setEditingPost] = useState<Blog.Post | null>(null);
 	const [form] = Form.useForm();
-
-	useEffect(() => {
-		if (!editingPost && posts.length === 0) {
-			form.setFieldsValue({
-				status: 'draft',
-			});
-		}
-	}, []);
 
 	const filteredPosts = posts.filter((post) => {
 		if (searchKeyword && !post.title.toLowerCase().includes(searchKeyword.toLowerCase())) return false;
@@ -76,6 +68,12 @@ const ManagePosts: React.FC = () => {
 	};
 
 	const columns = [
+		{
+			title: 'Ảnh',
+			dataIndex: 'coverImage',
+			width: 80,
+			render: (url: string) => <Avatar src={url} shape='square' size={60} />,
+		},
 		{
 			title: 'Tiêu đề',
 			dataIndex: 'title',
@@ -156,7 +154,7 @@ const ManagePosts: React.FC = () => {
 
 			<Modal
 				title={editingPost ? 'Sửa bài viết' : 'Thêm bài viết'}
-				open={isModalOpen}
+				visible={isModalOpen}
 				onCancel={() => setIsModalOpen(false)}
 				footer={null}
 				width={800}
