@@ -16,6 +16,39 @@
 		],
 	},
 
+	{
+		path: '/blog',
+		name: 'Blog',
+		icon: 'BookOutlined',
+		routes: [
+			{
+				path: '/blog',
+				name: 'Trang chủ',
+				component: './Blog/Home',
+			},
+			{
+				path: '/blog/about',
+				name: 'Giới thiệu',
+				component: './Blog/About',
+			},
+			{
+				path: '/blog/post/:slug',
+				component: './Blog/Post',
+				hideInMenu: true,
+			},
+			{
+				path: '/blog/manage/post',
+				name: 'Quản lý bài viết',
+				component: './Blog/Manage/Post',
+			},
+			{
+				path: '/blog/manage/tag',
+				name: 'Quản lý thẻ',
+				component: './Blog/Manage/Tag',
+			},
+		],
+	},
+
 	///////////////////////////////////
 	// DEFAULT MENU
 	{
