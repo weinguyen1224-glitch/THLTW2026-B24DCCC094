@@ -17,6 +17,8 @@ import type { IInitialState } from './services/base/typing';
 import './styles/global.less';
 import { currentRole } from './utils/ip';
 
+import './models/fitness';
+
 /**  loading */
 export const initialStateConfig = {
 	loading: <></>,

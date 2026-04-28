@@ -16,6 +16,39 @@
 		],
 	},
 
+	{
+		path: '/fitness',
+		name: 'Fitness',
+		icon: 'HeartOutlined',
+		routes: [
+			{
+				path: '/fitness',
+				name: 'Dashboard',
+				component: './Fitness/Dashboard',
+			},
+			{
+				path: '/fitness/workout-log',
+				name: 'Nhật ký tập',
+				component: './Fitness/WorkoutLog',
+			},
+			{
+				path: '/fitness/health-log',
+				name: 'Chỉ số sức khỏe',
+				component: './Fitness/HealthLog',
+			},
+			{
+				path: '/fitness/goals',
+				name: 'Mục tiêu',
+				component: './Fitness/Goals',
+			},
+			{
+				path: '/fitness/exercises',
+				name: 'Thư viện bài tập',
+				component: './Fitness/Exercises',
+			},
+		],
+	},
+
 	///////////////////////////////////
 	// DEFAULT MENU
 	{
