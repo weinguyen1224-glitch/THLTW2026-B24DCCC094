@@ -42,6 +42,12 @@
 		icon: 'OrderedListOutlined',
 		component: './TodoList',
 	},
+	{
+		path: '/kanban-board',
+		name: 'Kanban Board',
+		icon: 'ProjectOutlined',
+		component: './KanbanBoard',
+	},
 
 	// DANH MUC HE THONG
 	// {
